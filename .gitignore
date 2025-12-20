@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production build
+client/dist/
+client/build/
+
+# Environment variables
+.env
+server/.env
+
+# Database (optional - include if you want to share your data)
+server/ecommerce.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+.cache/

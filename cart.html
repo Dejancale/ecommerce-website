@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - ShopHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ShopHub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                <li><a href="cart.html" class="cart-icon active">🛒 <span class="cart-count">0</span></a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cart Header -->
+    <section class="products-header">
+        <div class="container">
+            <h1>Shopping Cart</h1>
+            <p>Review your items before checkout</p>
+        </div>
+    </section>
+
+    <!-- Cart Section -->
+    <section class="cart-section">
+        <div class="container">
+            <div id="emptyCart" class="empty-cart" style="display: none;">
+                <div class="empty-cart-icon">🛒</div>
+                <h2>Your cart is empty</h2>
+                <p>Add some products to get started!</p>
+                <a href="products.html" class="btn btn-primary">Continue Shopping</a>
+            </div>
+
+            <div id="cartContent" class="cart-layout">
+                <!-- Cart Items -->
+                <div class="cart-items">
+                    <h2>Cart Items</h2>
+                    <div id="cartItemsContainer"></div>
+                </div>
+
+                <!-- Cart Summary -->
+                <div class="cart-summary">
+                    <h2>Order Summary</h2>
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="subtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="shipping">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="total">$0.00</span>
+                    </div>
+                    <a href="checkout.html" class="btn btn-primary btn-block">Proceed to Checkout</a>
+                    <a href="products.html" class="btn btn-secondary btn-block">Continue Shopping</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script-backend.js"></script>
+    <script src="cart.js"></script>
+
+    <script src="script.js"></script>
+    
+    <!-- Add dark mode script here -->
+    <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    
+    themeToggle.addEventListener('click', () => {
+        const theme = htmlElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+    </script>
+    
+</body>
+</html>

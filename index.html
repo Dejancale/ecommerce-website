@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopHub - Your Online Store</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ShopHub</div>
+            <ul class="nav-links">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒 <span class="cart-count">0</span></a></li>
+            </ul>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        🌙
+    </button>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Welcome to ShopHub</h1>
+            <p>Discover amazing products at unbeatable prices</p>
+            <a href="products.html" class="btn btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-products">
+        <div class="container">
+            <h2>Featured Products</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/4A90E2/ffffff?text=Product+1" alt="Product 1">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Premium Wireless Headphones</h3>
+                        <div class="rating">★★★★★ (48)</div>
+                        <p class="price">$149.99</p>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="badge">New</span>
+                        <img src="https://via.placeholder.com/300x300/50C878/ffffff?text=Product+2" alt="Product 2">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Smart Fitness Watch</h3>
+                        <div class="rating">★★★★☆ (32)</div>
+                        <p class="price">$199.99</p>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <span class="badge sale">Sale</span>
+                        <img src="https://via.placeholder.com/300x300/FF6B6B/ffffff?text=Product+3" alt="Product 3">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Laptop Backpack Pro</h3>
+                        <div class="rating">★★★★★ (67)</div>
+                        <p class="price"><span class="old-price">$89.99</span> $69.99</p>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="https://via.placeholder.com/300x300/FFB347/ffffff?text=Product+4" alt="Product 4">
+                        <div class="product-overlay">
+                            <button class="btn-quick-view">Quick View</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Portable Bluetooth Speaker</h3>
+                        <div class="rating">★★★★☆ (41)</div>
+                        <p class="price">$79.99</p>
+                        <button class="btn btn-add-cart">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <a href="products.html" class="btn btn-secondary">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Signals -->
+    <section class="trust-signals">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <div class="trust-icon">🚚</div>
+                    <h3>Free Shipping</h3>
+                    <p>On orders over $50</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">🔒</div>
+                    <h3>Secure Payment</h3>
+                    <p>100% secure transactions</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">↩️</div>
+                    <h3>Easy Returns</h3>
+                    <p>30-day return policy</p>
+                </div>
+                <div class="trust-item">
+                    <div class="trust-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Dedicated customer service</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About ShopHub</h2>
+            <div class="about-content">
+                <p>Welcome to ShopHub, your trusted destination for quality products at competitive prices. Since our founding, we've been committed to providing our customers with an exceptional shopping experience.</p>
+                <p>We carefully curate our product selection to ensure you get the best value for your money. Our team works tirelessly to bring you the latest trends and timeless classics across various categories.</p>
+                <p>Customer satisfaction is our top priority. We believe in building lasting relationships with our customers through transparency, quality products, and outstanding service.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <h2>What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <p>"Amazing products and fast shipping! I've ordered multiple times and never been disappointed."</p>
+                    <p class="customer-name">- Sarah M.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <p>"Great customer service and quality products. Highly recommend ShopHub to everyone!"</p>
+                    <p class="customer-name">- John D.</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="rating">★★★★★</div>
+                    <p>"Best online shopping experience! The website is easy to navigate and checkout is seamless."</p>
+                    <p class="customer-name">- Emily R.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <p>Have questions? We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                    <div class="contact-details">
+                        <p>📧 Email: support@shophub.com</p>
+                        <p>📱 Phone: +1 (555) 123-4567</p>
+                        <p>📍 Address: 123 Commerce St, Shop City, SC 12345</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">Facebook</a>
+                        <a href="#" class="social-icon">Instagram</a>
+                        <a href="#" class="social-icon">Twitter</a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script-backend.js"></script>
+
+    <script src="script.js"></script>
+    
+    <!-- Add dark mode script here -->
+    <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    
+    themeToggle.addEventListener('click', () => {
+        const theme = htmlElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+    </script>
+    
+</body>
+</html>

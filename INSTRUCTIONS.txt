@@ -1,0 +1,176 @@
+# HOW TO MANAGE YOUR PRODUCTS
+
+## Easy Product Management with products.json
+
+All your products are stored in the `products.json` file. You can edit this file with any text editor (Notepad, TextEdit, VS Code, etc.) to manage your inventory.
+
+---
+
+## How to Edit a Product
+
+### To Change a Price:
+Find the product and change the "price" value:
+```
+"price": 149.99,    ← Change this number
+```
+
+### To Mark as Sold Out:
+Change "inStock" to false and "stockCount" to 0:
+```
+"inStock": false,
+"stockCount": 0,
+```
+
+### To Update Stock Quantity:
+Simply change the stockCount number:
+```
+"stockCount": 15,    ← Change this number
+```
+
+### To Add a Sale Price:
+Add an "oldPrice" and update the current price:
+```
+"price": 69.99,
+"oldPrice": 89.99,    ← This shows the original price crossed out
+"badge": "Sale"        ← This adds a red "Sale" badge
+```
+
+### To Mark as New Product:
+Change the badge to "New":
+```
+"badge": "New"
+```
+
+### To Remove Badge:
+Set badge to null:
+```
+"badge": null
+```
+
+---
+
+## Product Field Explained
+
+Each product has these fields:
+
+- **id**: Unique number (don't change unless adding new products)
+- **name**: Product title shown to customers
+- **category**: "electronics", "accessories", "clothing", or "home"
+- **price**: Current selling price
+- **oldPrice**: Original price (for sales) - use null if not on sale
+- **description**: Product details
+- **image**: Image URL (you can upload your own images and put the path here)
+- **rating**: 1 to 5 stars
+- **reviews**: Number of customer reviews
+- **inStock**: true or false
+- **stockCount**: Number of items available
+- **badge**: "New", "Sale", or null
+
+---
+
+## How to Add a New Product
+
+Copy an existing product block and paste it at the end (before the closing ]). Don't forget to:
+1. Add a comma after the previous product
+2. Give it a unique ID number
+3. Update all the fields
+
+Example:
+```json
+{
+  "id": 31,
+  "name": "Your New Product",
+  "category": "electronics",
+  "price": 99.99,
+  "oldPrice": null,
+  "description": "Description of your product",
+  "image": "https://via.placeholder.com/300x300/4A90E2/ffffff?text=New+Product",
+  "rating": 5,
+  "reviews": 0,
+  "inStock": true,
+  "stockCount": 10,
+  "badge": "New"
+}
+```
+
+---
+
+## How to Delete a Product
+
+Simply delete the entire product block (everything between { and }) and the comma before or after it.
+
+---
+
+## IMPORTANT TIPS
+
+✓ Always use double quotes " not single quotes '
+✓ Numbers don't need quotes (price: 99.99)
+✓ Text needs quotes (name: "Product Name")
+✓ true, false, and null don't need quotes
+✓ Use commas between items, but NOT after the last item
+✓ If you break the JSON format, the website won't load products
+✓ Keep a backup copy before making big changes!
+
+---
+
+## Testing Your Changes
+
+1. Save the products.json file
+2. Refresh your website in the browser
+3. Your changes should appear immediately!
+
+If products don't show up, you may have a JSON formatting error.
+Use a JSON validator tool online to check: https://jsonlint.com/
+
+---
+
+## Quick Edit Examples
+
+### Example 1: Product Sold Out
+Change this:
+```
+"inStock": true,
+"stockCount": 15,
+```
+To this:
+```
+"inStock": false,
+"stockCount": 0,
+```
+
+### Example 2: Put Item on Sale
+Change this:
+```
+"price": 89.99,
+"oldPrice": null,
+"badge": null
+```
+To this:
+```
+"price": 69.99,
+"oldPrice": 89.99,
+"badge": "Sale"
+```
+
+### Example 3: Restock Item
+Change this:
+```
+"stockCount": 0,
+"inStock": false,
+```
+To this:
+```
+"stockCount": 20,
+"inStock": true,
+```
+
+---
+
+## Need Help?
+
+- Check that all brackets { } and [ ] are properly closed
+- Make sure every line ends with a comma except the last item in each section
+- Use a JSON validator if you get errors: https://jsonlint.com/
+- Keep a backup of your working products.json file!
+
+Happy selling! 🎉

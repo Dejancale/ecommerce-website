@@ -1,0 +1,317 @@
+.my-orders-container {
+    min-height: 100vh;
+    padding: 120px 20px 60px;
+    background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%);
+}
+
+.my-orders-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.my-orders-header h1 {
+    font-size: 48px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 10px;
+}
+
+.my-orders-header p {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 18px;
+}
+
+.loading {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    margin-top: 100px;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid #ef4444;
+    color: #ef4444;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.no-orders {
+    text-align: center;
+    color: white;
+    margin-top: 60px;
+}
+
+.no-orders-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+}
+
+.no-orders h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #8b5cf6;
+}
+
+.no-orders p {
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 30px;
+}
+
+.btn-shop-now {
+    display: inline-block;
+    padding: 12px 40px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-shop-now:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+}
+
+.orders-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.order-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 15px;
+    padding: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.order-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+    border-color: rgba(139, 92, 246, 0.5);
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.order-header h3 {
+    color: white;
+    font-size: 20px;
+    margin: 0 0 5px 0;
+}
+
+.order-date {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+    margin: 0;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: white;
+    white-space: nowrap;
+}
+
+.order-details {
+    margin-bottom: 20px;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.detail-item .label {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.detail-item .value {
+    color: white;
+    font-weight: 600;
+}
+
+.btn-view-details {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-view-details:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(139, 92, 246, 0.4);
+}
+
+/* Modal Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1a0b2e 0%, #2d1b4e 100%);
+    border: 1px solid rgba(139, 92, 246, 0.3);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: background 0.2s ease;
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.modal-content h2 {
+    color: white;
+    font-size: 32px;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.modal-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 10px;
+}
+
+.modal-section h3 {
+    color: #8b5cf6;
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.modal-section p {
+    color: white;
+    margin: 8px 0;
+    line-height: 1.6;
+}
+
+.order-items-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.order-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+}
+
+.item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.item-info strong {
+    color: white;
+}
+
+.item-info span {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 14px;
+}
+
+.item-price {
+    color: #ec4899;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.order-total {
+    font-size: 24px;
+    color: #ec4899 !important;
+    font-weight: 700 !important;
+    margin-top: 15px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .my-orders-container {
+        padding: 100px 15px 40px;
+    }
+
+    .my-orders-header h1 {
+        font-size: 36px;
+    }
+
+    .orders-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 25px;
+    }
+
+    .modal-content h2 {
+        font-size: 24px;
+    }
+}

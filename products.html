@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ShopHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ShopHub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒 <span class="cart-count">0</span></a></li>
+
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Products Header -->
+    <section class="products-header">
+        <div class="container">
+            <h1>Our Products</h1>
+            <p>Browse our complete collection</p>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products-page">
+        <div class="container">
+            <div class="products-layout">
+                <!-- Sidebar Filters -->
+                <aside class="filters-sidebar">
+                    <h3>Filters</h3>
+
+                    <!-- Search -->
+                    <div class="filter-group">
+                        <input type="text" id="searchInput" class="search-input" placeholder="Search products...">
+                    </div>
+
+                    <!-- Category Filter -->
+                    <div class="filter-group">
+                        <h4>Categories</h4>
+                        <label><input type="checkbox" value="electronics" class="category-filter"> Electronics</label>
+                        <label><input type="checkbox" value="accessories" class="category-filter"> Accessories</label>
+                        <label><input type="checkbox" value="clothing" class="category-filter"> Clothing</label>
+                        <label><input type="checkbox" value="home" class="category-filter"> Home & Living</label>
+                    </div>
+
+                    <!-- Price Filter -->
+                    <div class="filter-group">
+                        <h4>Price Range</h4>
+                        <label><input type="radio" name="price" value="all" checked class="price-filter"> All Prices</label>
+                        <label><input type="radio" name="price" value="0-50" class="price-filter"> Under $50</label>
+                        <label><input type="radio" name="price" value="50-100" class="price-filter"> $50 - $100</label>
+                        <label><input type="radio" name="price" value="100-200" class="price-filter"> $100 - $200</label>
+                        <label><input type="radio" name="price" value="200+" class="price-filter"> Over $200</label>
+                    </div>
+
+                    <!-- Availability Filter -->
+                    <div class="filter-group">
+                        <h4>Availability</h4>
+                        <label><input type="checkbox" id="inStockOnly"> In Stock Only</label>
+                    </div>
+
+                    <button class="btn btn-secondary" id="clearFilters">Clear Filters</button>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-main">
+                    <div class="products-toolbar">
+                        <p class="results-count"><span id="productCount">12</span> Products Found</p>
+                        <div class="sort-options">
+                            <label for="sortSelect">Sort by:</label>
+                            <select id="sortSelect">
+                                <option value="featured">Featured</option>
+                                <option value="price-low">Price: Low to High</option>
+                                <option value="price-high">Price: High to Low</option>
+                                <option value="newest">Newest</option>
+                                <option value="popular">Most Popular</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="products-grid" id="productsContainer">
+                        <!-- Product 1 -->
+                        <div class="product-card" data-category="electronics" data-price="149.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/4A90E2/ffffff?text=Headphones" alt="Headphones">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Premium Wireless Headphones</h3>
+                                <div class="rating">★★★★★ (48)</div>
+                                <p class="price">$149.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 2 -->
+                        <div class="product-card" data-category="electronics" data-price="199.99" data-stock="true">
+                            <div class="product-image">
+                                <span class="badge">New</span>
+                                <img src="https://via.placeholder.com/300x300/50C878/ffffff?text=Smart+Watch" alt="Smart Watch">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Smart Fitness Watch</h3>
+                                <div class="rating">★★★★☆ (32)</div>
+                                <p class="price">$199.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 3 -->
+                        <div class="product-card" data-category="accessories" data-price="69.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/FF6B6B/ffffff?text=Backpack" alt="Backpack">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                    
+                            </div>
+                            <div class="product-info">
+                                <h3>Laptop Backpack Pro</h3>
+                                <div class="rating">★★★★★ (67)</div>
+                                <p class="price"><span class="old-price">$89.99</span> $69.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 4 -->
+                        <div class="product-card" data-category="electronics" data-price="79.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/FFB347/ffffff?text=Speaker" alt="Speaker">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Portable Bluetooth Speaker</h3>
+                                <div class="rating">★★★★☆ (41)</div>
+                                <p class="price">$79.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 5 -->
+                        <div class="product-card" data-category="electronics" data-price="299.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/9B59B6/ffffff?text=Tablet" alt="Tablet">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>10" Android Tablet</h3>
+                                <div class="rating">★★★★★ (89)</div>
+                                <p class="price">$299.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 6 -->
+                        <div class="product-card" data-category="accessories" data-price="39.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/E74C3C/ffffff?text=Phone+Case" alt="Phone Case">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Premium Phone Case</h3>
+                                <div class="rating">★★★★☆ (54)</div>
+                                <p class="price">$39.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 7 -->
+                        <div class="product-card" data-category="clothing" data-price="89.99" data-stock="true">
+                            <div class="product-image">
+                                <span class="badge">New</span>
+                                <img src="https://via.placeholder.com/300x300/3498DB/ffffff?text=Jacket" alt="Jacket">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Winter Jacket</h3>
+                                <div class="rating">★★★★★ (72)</div>
+                                <p class="price">$89.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 8 -->
+                        <div class="product-card" data-category="home" data-price="45.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/1ABC9C/ffffff?text=Coffee+Maker" alt="Coffee Maker">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Smart Coffee Maker</h3>
+                                <div class="rating">★★★★☆ (38)</div>
+                                <p class="price">$45.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 9 -->
+                        <div class="product-card" data-category="electronics" data-price="399.99" data-stock="false">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/34495E/ffffff?text=Drone" alt="Drone">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge out-stock">Out of Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>HD Camera Drone</h3>
+                                <div class="rating">★★★★★ (96)</div>
+                                <p class="price">$399.99</p>
+                                <button class="btn btn-add-cart" disabled>Out of Stock</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 10 -->
+                        <div class="product-card" data-category="accessories" data-price="24.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/F39C12/ffffff?text=USB+Hub" alt="USB Hub">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>7-Port USB Hub</h3>
+                                <div class="rating">★★★★☆ (43)</div>
+                                <p class="price">$24.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 11 -->
+                        <div class="product-card" data-category="clothing" data-price="54.99" data-stock="true">
+                            <div class="product-image">
+                                <span class="badge sale">Sale</span>
+                                <img src="https://via.placeholder.com/300x300/E67E22/ffffff?text=Sneakers" alt="Sneakers">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Running Sneakers</h3>
+                                <div class="rating">★★★★★ (81)</div>
+                                <p class="price"><span class="old-price">$79.99</span> $54.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+
+                        <!-- Product 12 -->
+                        <div class="product-card" data-category="home" data-price="129.99" data-stock="true">
+                            <div class="product-image">
+                                <img src="https://via.placeholder.com/300x300/16A085/ffffff?text=Lamp" alt="Lamp">
+                                <div class="product-overlay">
+                                    <button class="btn-quick-view">Quick View</button>
+                                </div>
+                                <span class="stock-badge in-stock">In Stock</span>
+                            </div>
+                            <div class="product-info">
+                                <h3>Smart LED Desk Lamp</h3>
+                                <div class="rating">★★★★☆ (29)</div>
+                                <p class="price">$129.99</p>
+                                <button class="btn btn-add-cart">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script-backend.js"></script>
+
+    <script src="script.js"></script>
+    
+    <!-- Add dark mode script here -->
+    <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    
+    themeToggle.addEventListener('click', () => {
+        const theme = htmlElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,109 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                   HOW TO START YOUR WEBSITE                      ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📋 QUICK START GUIDE
+═══════════════════════════════════════════════════════════════════
+
+STEP 1: Open TWO PowerShell/Terminal Windows
+───────────────────────────────────────────────────────────────────
+You need 2 separate terminal windows running at the same time:
+- One for the Backend (server)
+- One for the Frontend (website)
+
+
+STEP 2: Start the Backend Server (Terminal 1)
+───────────────────────────────────────────────────────────────────
+In the FIRST terminal:
+
+  cd C:\Users\Dejan\Desktop\Claude\WebsiteTest\server
+  npm start
+
+✅ You should see:
+   "🚀 ShopHub Backend Server Running!"
+   "Server: http://localhost:3000"
+
+⚠️ LEAVE THIS TERMINAL OPEN AND RUNNING
+
+
+STEP 3: Start the Frontend Website (Terminal 2)
+───────────────────────────────────────────────────────────────────
+In the SECOND terminal:
+
+  cd C:\Users\Dejan\Desktop\Claude\WebsiteTest\client
+  npm run dev
+
+✅ You should see:
+   "Local: http://localhost:5173/"
+
+⚠️ LEAVE THIS TERMINAL OPEN AND RUNNING
+
+
+STEP 4: Open Your Browser
+───────────────────────────────────────────────────────────────────
+Open your web browser and go to:
+
+  http://localhost:5173
+
+🎉 Your website is now running!
+
+
+═══════════════════════════════════════════════════════════════════
+🛑 TO STOP THE WEBSITE
+═══════════════════════════════════════════════════════════════════
+
+In each terminal window, press:  Ctrl + C
+
+This will stop both the server and website.
+
+
+═══════════════════════════════════════════════════════════════════
+❓ TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════
+
+Problem: "npm: command not found" or "npm is not recognized"
+Solution: You need to install Node.js first
+         Download from: https://nodejs.org/
+
+Problem: "Port 3000 already in use"
+Solution: Close any other programs using port 3000
+         Or restart your computer
+
+Problem: Products not loading
+Solution: Make sure BOTH terminals are running
+         Backend must start BEFORE frontend
+
+Problem: "Cannot find module"
+Solution: Run these commands:
+         cd server
+         npm install
+         cd ../client
+         npm install
+
+
+═══════════════════════════════════════════════════════════════════
+📝 QUICK REFERENCE
+═══════════════════════════════════════════════════════════════════
+
+Backend (Server):     http://localhost:3000
+Frontend (Website):   http://localhost:5173
+
+To edit products:     server/products.json
+To edit server code:  server/server.js
+To edit website:      client/src/
+
+
+═══════════════════════════════════════════════════════════════════
+💡 TIPS
+═══════════════════════════════════════════════════════════════════
+
+✓ Always start Backend FIRST, then Frontend
+✓ Keep both terminal windows open while using the website
+✓ Changes to frontend code reload automatically (hot reload)
+✓ Changes to backend require restarting the server (Ctrl+C, then npm start)
+✓ Your shopping cart is saved in your browser
+
+
+═══════════════════════════════════════════════════════════════════
+
+Need help? Check README.md for detailed documentation.

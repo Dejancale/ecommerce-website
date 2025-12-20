@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ShopHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">ShopHub</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                <li><a href="cart.html" class="cart-icon">🛒 <span class="cart-count">0</span></a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Checkout Header -->
+    <section class="products-header">
+        <div class="container">
+            <h1>Checkout</h1>
+            <p>Complete your purchase</p>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout-section">
+        <div class="container">
+            <div class="checkout-layout">
+                <!-- Checkout Form -->
+                <div class="checkout-form-container">
+                    <h2>Shipping Information</h2>
+                    <form id="checkoutForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name *</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number *</label>
+                            <input type="tel" id="phone" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="address">Shipping Address *</label>
+                            <textarea id="address" rows="3" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="city">City *</label>
+                            <input type="text" id="city" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="postalCode">Postal Code *</label>
+                                <input type="text" id="postalCode" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="country">Country *</label>
+                                <input type="text" id="country" value="Macedonia" required>
+                            </div>
+                        </div>
+
+                        <h2 style="margin-top: 30px;">Payment Method</h2>
+
+                        <div class="payment-methods">
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="cash_on_delivery" checked>
+                                <div class="payment-option-content">
+                                    <strong>💵 Cash on Delivery</strong>
+                                    <p>Pay when you receive your order</p>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="bank_transfer">
+                                <div class="payment-option-content">
+                                    <strong>🏦 Bank Transfer</strong>
+                                    <p>Transfer to our bank account</p>
+                                </div>
+                            </label>
+
+                            <label class="payment-option">
+                                <input type="radio" name="payment" value="credit_card" disabled>
+                                <div class="payment-option-content">
+                                    <strong>💳 Credit Card</strong>
+                                    <p>Coming soon - Contact your bank</p>
+                                </div>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="notes">Order Notes (Optional)</label>
+                            <textarea id="notes" rows="3" placeholder="Special instructions for delivery..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block" id="placeOrderBtn">
+                            Place Order
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Order Summary -->
+                <div class="checkout-summary">
+                    <h2>Order Summary</h2>
+                    <div id="checkoutItems"></div>
+
+                    <div class="summary-divider"></div>
+
+                    <div class="summary-row">
+                        <span>Subtotal:</span>
+                        <span id="checkoutSubtotal">$0.00</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping:</span>
+                        <span id="checkoutShipping">$0.00</span>
+                    </div>
+                    <div class="summary-row total">
+                        <span>Total:</span>
+                        <span id="checkoutTotal">$0.00</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 ShopHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="checkout.js"></script>
+    <script src="script-backend.js"></script>
+
+    <script src="script.js"></script>
+    
+    <!-- Add dark mode script here -->
+    <script>
+    const themeToggle = document.getElementById('themeToggle');
+    const htmlElement = document.documentElement;
+    
+    const currentTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', currentTheme);
+    themeToggle.textContent = currentTheme === 'dark' ? '☀️' : '🌙';
+    
+    themeToggle.addEventListener('click', () => {
+        const theme = htmlElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        themeToggle.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+    });
+    </script>
+    
+</body>
+</html>
