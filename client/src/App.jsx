@@ -13,6 +13,7 @@ import Signup from './pages/Signup';
 import OrderConfirmation from './pages/OrderConfirmation';
 import MyOrders from './pages/MyOrders';
 import ForgotPassword from './pages/ForgotPassword';
+import ResetPassword from './pages/ResetPassword';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminOrders from './pages/AdminOrders';
 import AdminProducts from './pages/AdminProducts';
@@ -35,6 +36,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
               <Route path="/order-confirmation" element={<OrderConfirmation />} />
               <Route path="/my-orders" element={<MyOrders />} />
               <Route path="/admin" element={<AdminDashboard />} />
