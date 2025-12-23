@@ -61,7 +61,7 @@ const Checkout = () => {
     // Validate stock availability before submitting
     try {
       const productsResponse = await axios.get(`${API_BASE_URL}/api/products`);
-      const products = productsResponse.data;
+      const products = productsResponse.data.products; // Fix: access .products property
       
       const stockErrors = [];
       cart.forEach(item => {
