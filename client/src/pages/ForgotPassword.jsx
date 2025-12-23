@@ -23,7 +23,7 @@ const ForgotPassword = () => {
             });
 
             setMessage(response.data.message);
-            setEmail('');
+            setEmail(`');
         } catch (err) {
             setError(err.response?.data?.error || 'Failed to send reset email');
         } finally {

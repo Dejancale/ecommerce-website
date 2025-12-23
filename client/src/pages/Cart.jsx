@@ -16,7 +16,7 @@ const Cart = () => {
         const response = await axios.get(`${API_BASE_URL}/api/products`);
         setProducts(response.data);
       } catch (error) {
-        console.error('Failed to fetch products:', error);
+        console.error(`Failed to fetch products:', error);
       }
     };
     fetchProducts();
