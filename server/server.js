@@ -154,21 +154,37 @@ function initializeDatabase() {
         if (!err && row.count === 0) {
             console.log('📦 Database empty, importing products...');
             const fs = require('fs');
+            const productsPath = path.join(__dirname, 'products.json');
+            console.log('Looking for products.json at:', productsPath);
+            
             try {
-                const productsData = JSON.parse(fs.readFileSync('./products.json', 'utf8'));
+                if (!fs.existsSync(productsPath)) {
+                    console.error('❌ products.json not found at:', productsPath);
+                    console.log('Files in directory:', fs.readdirSync(__dirname));
+                    return;
+                }
+                
+                const productsData = JSON.parse(fs.readFileSync(productsPath, 'utf8'));
+                console.log(`Found ${productsData.products.length} products to import`);
+                
                 const stmt = db.prepare(`
                     INSERT INTO products (id, name, category, price, oldPrice, description, image, rating, reviews_count, inStock, stockCount, badge)
                     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                 `);
+                
                 productsData.products.forEach(p => {
                     stmt.run([p.id, p.name, p.category, p.price, p.oldPrice, p.description, p.image, p.rating, p.reviews, p.inStock ? 1 : 0, p.stockCount, p.badge]);
                 });
+                
                 stmt.finalize(() => {
                     console.log('✅ Products auto-imported successfully!');
                 });
             } catch (error) {
                 console.error('❌ Failed to auto-import products:', error.message);
+                console.error('Stack:', error.stack);
             }
+        } else {
+            console.log(`✓ Database has ${row ? row.count : 0} products`);
         }
     });
 }
