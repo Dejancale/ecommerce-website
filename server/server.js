@@ -148,6 +148,29 @@ function initializeDatabase() {
     )`);
 
     console.log('✓ Database tables initialized');
+    
+    // Auto-import products if database is empty
+    db.get('SELECT COUNT(*) as count FROM products', [], (err, row) => {
+        if (!err && row.count === 0) {
+            console.log('📦 Database empty, importing products...');
+            const fs = require('fs');
+            try {
+                const productsData = JSON.parse(fs.readFileSync('./products.json', 'utf8'));
+                const stmt = db.prepare(`
+                    INSERT INTO products (id, name, category, price, oldPrice, description, image, rating, reviews_count, inStock, stockCount, badge)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                `);
+                productsData.products.forEach(p => {
+                    stmt.run([p.id, p.name, p.category, p.price, p.oldPrice, p.description, p.image, p.rating, p.reviews, p.inStock ? 1 : 0, p.stockCount, p.badge]);
+                });
+                stmt.finalize(() => {
+                    console.log('✅ Products auto-imported successfully!');
+                });
+            } catch (error) {
+                console.error('❌ Failed to auto-import products:', error.message);
+            }
+        }
+    });
 }
 
 // ==================== PRODUCTS API ====================
