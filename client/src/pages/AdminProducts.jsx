@@ -33,7 +33,7 @@ const AdminProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(${API_BASE_URL}/api/products');
+      const response = await axios.get(`${API_BASE_URL}/api/products');
       setProducts(response.data.products);
     } catch (error) {
       console.error('Error fetching products:', error);
