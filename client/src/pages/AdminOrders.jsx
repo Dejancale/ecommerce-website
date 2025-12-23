@@ -32,7 +32,7 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/admin/orders`, {
+      const response = await axios.get(${API_BASE_URL}/api/admin/orders', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(response.data.orders);

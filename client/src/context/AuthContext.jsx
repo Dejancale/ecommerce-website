@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
       });
       setUser(response.data.user);
     } catch (error) {
-      console.error(`Error fetching profile:', error);
+      console.error('Error fetching profile:', error);
       logout();
     } finally {
       setLoading(false);
@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       const response = await axios.post(`${API_BASE_URL}/api/auth/register`, userData);
       const { token, user } = response.data;
       
-      localStorage.setItem(`token', token);
+      localStorage.setItem('token', token);
       setToken(token);
       setUser(user);
       
@@ -65,7 +65,7 @@ export const AuthProvider = ({ children }) => {
       });
       const { token, user } = response.data;
       
-      localStorage.setItem(`token', token);
+      localStorage.setItem('token', token);
       setToken(token);
       setUser(user);
       
@@ -95,7 +95,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       return {
         success: false,
-        error: error.response?.data?.error || `Update failed'
+        error: error.response?.data?.error || 'Update failed'
       };
     }
   };
@@ -112,7 +112,7 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       return {
         success: false,
-        error: error.response?.data?.error || `Password change failed'
+        error: error.response?.data?.error || 'Password change failed'
       };
     }
   };
@@ -124,7 +124,7 @@ export const AuthProvider = ({ children }) => {
       });
       return response.data.orders;
     } catch (error) {
-      console.error(`Error fetching orders:', error);
+      console.error('Error fetching orders:', error);
       return [];
     }
   };
@@ -136,7 +136,7 @@ export const AuthProvider = ({ children }) => {
       });
       return response.data;
     } catch (error) {
-      console.error(`Error fetching order details:', error);
+      console.error('Error fetching order details:', error);
       return null;
     }
   };

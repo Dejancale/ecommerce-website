@@ -60,7 +60,7 @@ const Checkout = () => {
 
     // Validate stock availability before submitting
     try {
-      const productsResponse = await axios.get(`${API_BASE_URL}/api/products`);
+      const productsResponse = await axios.get(${API_BASE_URL}/api/products');
       const products = productsResponse.data;
       
       const stockErrors = [];
@@ -107,7 +107,7 @@ const Checkout = () => {
       
       // If user is logged in, use authenticated endpoint
       if (isAuthenticated && token) {
-        response = await axios.post(`${API_BASE_URL}/api/orders`, orderData, {
+        response = await axios.post(${API_BASE_URL}/api/orders', orderData, {
           headers: { Authorization: `Bearer ${token}` }
         });
       } else {

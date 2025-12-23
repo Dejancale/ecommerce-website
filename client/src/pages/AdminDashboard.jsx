@@ -26,10 +26,10 @@ const AdminDashboard = () => {
       console.log('Token:', token);
       
       const [statsRes, ordersRes] = await Promise.all([
-        axios.get(`${API_BASE_URL}/api/admin/stats`, {
+        axios.get(${API_BASE_URL}/api/admin/stats', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get(`${API_BASE_URL}/api/admin/orders`, {
+        axios.get(${API_BASE_URL}/api/admin/orders', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
