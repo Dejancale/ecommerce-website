@@ -491,28 +491,18 @@ app.post('/api/auth/register', async (req, res) => {
 
             // Hash password
             const hashedPassword = await bcrypt.hash(password, 10);
-            
-            // Generate verification token
-            const verificationToken = crypto.randomBytes(32).toString('hex');
 
             // Insert new user
             db.run(
-                `INSERT INTO users (email, password, first_name, last_name, phone, address, city, postal_code, country, verification_token, email_verified) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 0)`,
-                [email, hashedPassword, firstName, lastName, phone, address, city, postalCode, country, verificationToken],
+                `INSERT INTO users (email, password, first_name, last_name, phone, address, city, postal_code, country) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [email, hashedPassword, firstName, lastName, phone, address, city, postalCode, country],
                 async function(err) {
                     if (err) {
                         return res.status(500).json({ error: err.message });
                     }
 
                     const userId = this.lastID;
-
-                    // Send verification email
-                    const verificationLink = `${process.env.FRONTEND_URL || 'http://localhost:5173'}/verify-email?token=${verificationToken}`;
-                    await sendEmail(
-                        email,
-                        emailTemplates.verification(verificationLink, firstName)
-                    );
 
                     // Generate JWT token
                     const token = jwt.sign(
@@ -534,10 +524,8 @@ app.post('/api/auth/register', async (req, res) => {
                             city: city,
                             postalCode: postalCode,
                             country: country,
-                            is_admin: 0,
-                            email_verified: 0
-                        },
-                        message: 'Registration successful! Please check your email to verify your account.'
+                            is_admin: 0
+                        }
                     });
                 }
             );
