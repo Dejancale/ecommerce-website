@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import API_BASE_URL from '../config.js';
 import './AdminDashboard.css';
 
 const AdminProducts = () => {
@@ -32,7 +33,7 @@ const AdminProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/products');
+      const response = await axios.get(${API_BASE_URL}/api/products');
       setProducts(response.data.products);
     } catch (error) {
       console.error('Error fetching products:', error);
@@ -85,7 +86,7 @@ const AdminProducts = () => {
       if (editingProduct) {
         // Update existing product
         await axios.put(
-          `http://localhost:3000/api/admin/products/${editingProduct.id}`,
+          ${API_BASE_URL}/api/admin/products/${editingProduct.id}`,
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -93,7 +94,7 @@ const AdminProducts = () => {
       } else {
         // Create new product
         await axios.post(
-          'http://localhost:3000/api/admin/products',
+          ${API_BASE_URL}/api/admin/products',
           formData,
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -115,7 +116,7 @@ const AdminProducts = () => {
 
     try {
       await axios.delete(
-        `http://localhost:3000/api/admin/products/${productId}`,
+        ${API_BASE_URL}/api/admin/products/${productId}`,
         { headers: { Authorization: `Bearer ${token}` } }
       );
       alert('Product deleted successfully!');

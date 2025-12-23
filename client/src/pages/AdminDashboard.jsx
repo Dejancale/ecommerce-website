@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import API_BASE_URL from '../config.js';
 import './AdminDashboard.css';
 
 const AdminDashboard = () => {
@@ -25,10 +26,10 @@ const AdminDashboard = () => {
       console.log('Token:', token);
       
       const [statsRes, ordersRes] = await Promise.all([
-        axios.get('http://localhost:3000/api/admin/stats', {
+        axios.get(${API_BASE_URL}/api/admin/stats', {
           headers: { Authorization: `Bearer ${token}` }
         }),
-        axios.get('http://localhost:3000/api/admin/orders', {
+        axios.get(${API_BASE_URL}/api/admin/orders', {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);

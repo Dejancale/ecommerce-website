@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import axios from 'axios';
+import API_BASE_URL from '../config.js';
 import './AdminDashboard.css';
 
 const AdminOrders = () => {
@@ -31,7 +32,7 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get('http://localhost:3000/api/admin/orders', {
+      const response = await axios.get(${API_BASE_URL}/api/admin/orders', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(response.data.orders);
@@ -44,7 +45,7 @@ const AdminOrders = () => {
 
   const fetchOrderDetails = async (id) => {
     try {
-      const response = await axios.get(`http://localhost:3000/api/admin/orders/${id}`, {
+      const response = await axios.get(${API_BASE_URL}/api/admin/orders/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSelectedOrder(response.data.order);
@@ -57,7 +58,7 @@ const AdminOrders = () => {
   const updateOrderStatus = async (id, newStatus) => {
     try {
       await axios.put(
-        `http://localhost:3000/api/admin/orders/${id}/status`,
+        ${API_BASE_URL}/api/admin/orders/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
