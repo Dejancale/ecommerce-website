@@ -151,7 +151,14 @@ function initializeDatabase() {
     
     // Auto-import products if database is empty
     db.get('SELECT COUNT(*) as count FROM products', [], (err, row) => {
-        if (!err && row.count === 0) {
+        if (err) {
+            console.error('❌ Error checking product count:', err.message);
+            return;
+        }
+        
+        console.log(`📊 Current product count: ${row.count}`);
+        
+        if (row && row.count === 0) {
             console.log('📦 Database empty, importing products...');
             const fs = require('fs');
             const productsPath = path.join(__dirname, 'products.json');
@@ -176,15 +183,19 @@ function initializeDatabase() {
                     stmt.run([p.id, p.name, p.category, p.price, p.oldPrice, p.description, p.image, p.rating, p.reviews, p.inStock ? 1 : 0, p.stockCount, p.badge]);
                 });
                 
-                stmt.finalize(() => {
-                    console.log('✅ Products auto-imported successfully!');
+                stmt.finalize((finalizeErr) => {
+                    if (finalizeErr) {
+                        console.error('❌ Error finalizing import:', finalizeErr.message);
+                    } else {
+                        console.log('✅ Products auto-imported successfully!');
+                    }
                 });
             } catch (error) {
                 console.error('❌ Failed to auto-import products:', error.message);
                 console.error('Stack:', error.stack);
             }
-        } else {
-            console.log(`✓ Database has ${row ? row.count : 0} products`);
+        } else if (row) {
+            console.log(`✓ Database already has ${row.count} products`);
         }
     });
 }
