@@ -18,7 +18,7 @@ const MyOrders = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await axios.get('http://localhost:3000/api/auth/orders', {
+            const response = await axios.get(${API_BASE_URL}/api/auth/orders', {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

@@ -4,6 +4,7 @@ import { useCart } from '../context/CartContext';
 import { useAuth } from '../context/AuthContext';
 import { createOrder } from '../services/api';
 import axios from 'axios';
+import API_BASE_URL from '../config.js';
 import { showToast } from '../components/Toast';
 import './Checkout.css';
 
@@ -59,7 +60,7 @@ const Checkout = () => {
 
     // Validate stock availability before submitting
     try {
-      const productsResponse = await axios.get('http://localhost:3000/api/products');
+      const productsResponse = await axios.get(${API_BASE_URL}/api/products');
       const products = productsResponse.data;
       
       const stockErrors = [];
@@ -106,7 +107,7 @@ const Checkout = () => {
       
       // If user is logged in, use authenticated endpoint
       if (isAuthenticated && token) {
-        response = await axios.post('http://localhost:3000/api/orders', orderData, {
+        response = await axios.post(${API_BASE_URL}/api/orders', orderData, {
           headers: { Authorization: `Bearer ${token}` }
         });
       } else {
