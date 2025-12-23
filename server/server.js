@@ -883,6 +883,25 @@ app.get('/api/auth/orders/:id', authenticateToken, (req, res) => {
 
 // ==================== ADMIN ENDPOINTS ====================
 
+// Quick endpoint to make user admin (for setup only)
+app.post('/api/make-admin', (req, res) => {
+    const { email, secret } = req.body;
+    
+    if (secret !== 'admin-setup-2025') {
+        return res.status(403).json({ error: 'Invalid secret' });
+    }
+    
+    db.run('UPDATE users SET is_admin = 1 WHERE email = ?', [email], function(err) {
+        if (err) {
+            return res.status(500).json({ error: err.message });
+        }
+        if (this.changes === 0) {
+            return res.status(404).json({ error: 'User not found' });
+        }
+        res.json({ success: true, message: 'User is now admin' });
+    });
+});
+
 // Import products from JSON (one-time setup)
 app.post('/api/admin/import-products', express.json(), (req, res) => {
     const { products } = req.body;
