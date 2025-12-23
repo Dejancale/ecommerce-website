@@ -19,7 +19,7 @@ const MyOrders = () => {
 
     const fetchOrders = async () => {
         try {
-            const response = await axios.get(${API_BASE_URL}/api/auth/orders', {
+            const response = await axios.get(`${API_BASE_URL}/api/auth/orders`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -35,7 +35,7 @@ const MyOrders = () => {
 
     const viewOrderDetails = async (orderId) => {
         try {
-            const response = await axios.get(${API_BASE_URL}/api/orders/${orderId}`, {
+            const response = await axios.get(`${API_BASE_URL}/api/orders/${orderId}`, {
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }

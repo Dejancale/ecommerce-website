@@ -32,7 +32,7 @@ const AdminOrders = () => {
 
   const fetchOrders = async () => {
     try {
-      const response = await axios.get(${API_BASE_URL}/api/admin/orders', {
+      const response = await axios.get(`${API_BASE_URL}/api/admin/orders`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setOrders(response.data.orders);
@@ -45,7 +45,7 @@ const AdminOrders = () => {
 
   const fetchOrderDetails = async (id) => {
     try {
-      const response = await axios.get(${API_BASE_URL}/api/admin/orders/${id}`, {
+      const response = await axios.get(`${API_BASE_URL}/api/admin/orders/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setSelectedOrder(response.data.order);
@@ -58,7 +58,7 @@ const AdminOrders = () => {
   const updateOrderStatus = async (id, newStatus) => {
     try {
       await axios.put(
-        ${API_BASE_URL}/api/admin/orders/${id}/status`,
+        `${API_BASE_URL}/api/admin/orders/${id}/status`,
         { status: newStatus },
         { headers: { Authorization: `Bearer ${token}` } }
       );
