@@ -29,7 +29,7 @@ const db = new sqlite3.Database('./ecommerce.db', (err) => {
 
 // Create database tables
 function initializeDatabase() {
-    // Products table
+    // Products table - with callback to ensure it's created before checking
     db.run(`CREATE TABLE IF NOT EXISTS products (
         id INTEGER PRIMARY KEY,
         name TEXT NOT NULL,
@@ -44,7 +44,14 @@ function initializeDatabase() {
         stockCount INTEGER DEFAULT 0,
         badge TEXT,
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP
-    )`);
+    )`, (err) => {
+        if (err) {
+            console.error('❌ Error creating products table:', err.message);
+        } else {
+            console.log('✓ Products table ready');
+            autoImportProducts();
+        }
+    });
 
     // Reviews table
     db.run(`CREATE TABLE IF NOT EXISTS reviews (
@@ -148,8 +155,10 @@ function initializeDatabase() {
     )`);
 
     console.log('✓ Database tables initialized');
-    
-    // Auto-import products if database is empty
+}
+
+// Auto-import products function (called after products table is created)
+function autoImportProducts() {
     db.get('SELECT COUNT(*) as count FROM products', [], (err, row) => {
         if (err) {
             console.error('❌ Error checking product count:', err.message);
