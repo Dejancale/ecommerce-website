@@ -1,6 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react';
 import axios from 'axios';
-import API_BASE_URL from '../config.js';
 
 const AuthContext = createContext();
 
@@ -27,7 +26,7 @@ export const AuthProvider = ({ children }) => {
 
   const fetchUserProfile = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/auth/profile`, {
+      const response = await axios.get('http://localhost:3000/api/auth/profile', {
         headers: { Authorization: `Bearer ${token}` }
       });
       setUser(response.data.user);
@@ -41,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/register`, userData);
+      const response = await axios.post('http://localhost:3000/api/auth/register', userData);
       const { token, user } = response.data;
       
       localStorage.setItem('token', token);
@@ -59,7 +58,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post(`${API_BASE_URL}/api/auth/login`, {
+      const response = await axios.post('http://localhost:3000/api/auth/login', {
         email,
         password
       });
@@ -86,7 +85,7 @@ export const AuthProvider = ({ children }) => {
 
   const updateProfile = async (profileData) => {
     try {
-      await axios.put(`${API_BASE_URL}/api/auth/profile`, profileData, {
+      await axios.put('http://localhost:3000/api/auth/profile', profileData, {
         headers: { Authorization: `Bearer ${token}` }
       });
       
@@ -103,7 +102,7 @@ export const AuthProvider = ({ children }) => {
   const changePassword = async (currentPassword, newPassword) => {
     try {
       await axios.post(
-        `${API_BASE_URL}/api/auth/change-password`,
+        'http://localhost:3000/api/auth/change-password',
         { currentPassword, newPassword },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -119,7 +118,7 @@ export const AuthProvider = ({ children }) => {
 
   const getOrders = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/auth/orders`, {
+      const response = await axios.get('http://localhost:3000/api/auth/orders', {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response.data.orders;
@@ -131,7 +130,7 @@ export const AuthProvider = ({ children }) => {
 
   const getOrderDetails = async (orderId) => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/api/auth/orders/${orderId}`, {
+      const response = await axios.get(`http://localhost:3000/api/auth/orders/${orderId}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       return response.data;

@@ -1,8 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { useState, useEffect } from 'react';
-import axios from 'axios';
-import API_BASE_URL from '../config.js';
+import { getProducts } from '../services/api';
 import './Cart.css';
 
 const Cart = () => {
@@ -11,15 +10,15 @@ const Cart = () => {
 
   useEffect(() => {
     // Fetch current product stock
-    const fetchProducts = async () => {
+    const fetchProductsData = async () => {
       try {
-        const response = await axios.get(${API_BASE_URL}/api/products');
-        setProducts(response.data);
+        const response = await getProducts();
+        setProducts(response.data.products || response.data);
       } catch (error) {
         console.error('Failed to fetch products:', error);
       }
     };
-    fetchProducts();
+    fetchProductsData();
   }, []);
 
   const getProductStock = (productId) => {
